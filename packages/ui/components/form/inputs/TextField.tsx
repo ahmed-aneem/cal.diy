@@ -101,7 +101,8 @@ const Addon = ({
 );
 
 export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function InputField(props, ref) {
-  const id = useId();
+  const generatedId = useId();
+  const id = props.id || generatedId;
   const { t: _t, isLocaleReady, i18n } = useLocale();
   const t = props.t || _t;
   const name = props.name || "";
