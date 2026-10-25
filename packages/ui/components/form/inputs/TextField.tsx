@@ -131,6 +131,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function
     t: __t,
     dataTestid,
     size,
+    id: _id,
     ...passThrough
   } = props;
 
@@ -174,6 +175,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function
             </Addon>
           )}
           <input
+            {...passThrough}
             data-testid={dataTestid ? `${dataTestid}-input` : "input-field"}
             id={id}
             type={type}
@@ -186,7 +188,6 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function
               addOnSuffix && "pl-0",
               className
             )}
-            {...passThrough}
             {...(type == "search" && {
               onChange: (e) => {
                 setInputValue(e.target.value);
@@ -222,6 +223,7 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function
         </div>
       ) : (
         <Input
+          {...passThrough}
           id={id}
           type={type}
           placeholder={placeholder}
@@ -234,7 +236,6 @@ export const InputField = forwardRef<HTMLInputElement, InputFieldProps>(function
             addOnSuffix && !addOnLeading && "pl-0.5",
             className
           )}
-          {...passThrough}
           readOnly={readOnly}
           ref={ref}
           isFullWidth={inputIsFullWidth}
